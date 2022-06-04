@@ -1,3 +1,4 @@
+import subprocess
 # using webdriver with selenium
 from selenium import webdriver
 
@@ -150,9 +151,8 @@ driver.implicitly_wait(20) # gives an implicit wait for 20 seconds
 
 # --------------------- Refactored Version ----------------------------------------------
 for i in range (5):
-# Switch to the new tab and open the URL
-
-    driver.execute_script("window.open()")
+    
+    driver.execute_script("window.open(' ')")
 
     driver.switch_to.window(driver.window_handles[i])
 
@@ -177,5 +177,5 @@ for i in range (5):
     input_cohort.send_keys('Sirius')
 
     input_job_source.send_keys('Independent Search')
-
+subprocess.call("TASKKILL /f  /IM  CHROMEDRIVER.EXE")
 #----------------------------------------------------------------------------------
