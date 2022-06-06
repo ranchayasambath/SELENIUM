@@ -1,6 +1,7 @@
 import subprocess
 # using webdriver with selenium
 from selenium import webdriver
+import time
 
 # path to the chrome webdriver exe file 
 PATH = "C:\chromedriver.exe"
@@ -149,7 +150,7 @@ url = 'https://share.hsforms.com/1DXiqHMY_Sie_ud0bcep1VQ1odv5?__hstc=241689437.d
 
 # --------------------- Refactored Version ----------------------------------------------
 for i in range (5):
-    
+
     driver.execute_script("window.open(' ')")
 
     driver.switch_to.window(driver.window_handles[i])
@@ -179,7 +180,8 @@ for i in range (5):
     agreed = driver.find_element_by_id("copy_of_form_submission-input")
     if agreed.get_attribute("checked") != "true":
         agreed.click()
-
+time.sleep(5)
+driver.quit()
  #Terminate all chromedrivers that built up to reclaim resources.   
 subprocess.call("TASKKILL /f  /IM  CHROMEDRIVER.EXE")
 #--------------------------------------------------------------------------------------------
