@@ -1,0 +1,1 @@
+value = pyperclip.paste()value = pyperclip.paste()value = pyperclip.paste()value = pyperclip.paste()

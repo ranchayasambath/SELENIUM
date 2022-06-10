@@ -1,4 +1,5 @@
 #task mananger webdriver's process management
+from queue import Empty
 import subprocess
 #copy/paste clipboard function
 import pyperclip
@@ -62,28 +63,34 @@ agreed = driver.find_element_by_id("copy_of_form_submission-input")
 if agreed.get_attribute("checked") != "true":
     agreed.click()
 
-list = []
-if pyperclip.paste() != 'None':
-    # value = pyperclip.paste()
+# list = []
+# while True:
+#     if pyperclip.paste() != 'None':
+#         value = pyperclip.paste()
 
-    # with open('new.txt','a') as g:
-    #     g.write(value)  
-    
-    if input_job_source.get_attribute("value") == "Independent Search": 
-        input_company_name = driver.find_element_by_id('company-input')
-        f = open("cName.txt")     
-        input_company_name.send_keys(f.read())
+#         if value not in list:
+#             print(list)
+#             time.sleep(3)
+#             with open('cName.txt','a') as f:
+#                 f.write(value)
+                
+#             with open('jTitle.txt','a') as g:
+#                 g.write(value)
 
-        input_job_title = driver.find_element_by_id('jobtitle-input')
-        g = open("jTitle.txt") 
-        input_job_title.send_keys(g.read())
+if input_job_source.get_attribute("value") == "Independent Search": 
+    input_company_name = driver.find_element_by_id('company-input')
+    f = open("cName.txt")     
+    input_company_name.send_keys(f.read())
 
-        input_job_posting_url = driver.find_element_by_id('link_to_job_posting-input')
-        h = open("jPosting.txt")   
-        input_job_posting_url.send_keys(h.read())
+# input_job_title = driver.find_element_by_id('jobtitle-input')
+# g = open("jTitle.txt") 
+# input_job_title.send_keys(g.read())
+
+# input_job_posting_url = driver.find_element_by_id('link_to_job_posting-input')
+# h = open("jPosting.txt")   
+# input_job_posting_url.send_keys(h.read())
 
 submit_btn = driver.find_element_by_class_name("button")
-
 if submit_btn.click():
     driver.quit()
 
