@@ -9,6 +9,7 @@ from pynput import keyboard
 from selenium import webdriver
 #timer function
 import time
+from selenium.webdriver.common.by import By
 
 #algorithm:
 
@@ -34,8 +35,8 @@ url = 'https://share.hsforms.com/1DXiqHMY_Sie_ud0bcep1VQ1odv5?__hstc=241689437.d
 # Initial page load
 # driver.get(url)
 
-# #  Identify user input fields through id's
-# input_fname = driver.find_element_by_id('firstname-input')
+#  Identify user input fields through id's
+# input_fname = driver.find_element(By.ID,'firstname-input')
 
 # input_lname = driver.find_element_by_id('lastname-input')
 
@@ -209,15 +210,15 @@ for i in range (5):
 
     driver.get(url)
 
-    input_fname = driver.find_element_by_id('firstname-input')
+    input_fname = driver.find_element(By.ID,'firstname-input')
 
-    input_lname = driver.find_element_by_id('lastname-input')
+    input_lname = driver.find_element(By.ID,'lastname-input')
 
-    input_email = driver.find_element_by_id('email-input')
+    input_email = driver.find_element(By.ID,'email-input')
 
-    input_cohort = driver.find_element_by_id('cohort_accepted-input')
+    input_cohort = driver.find_element(By.ID,'cohort_accepted-input')
 
-    input_job_source = driver.find_element_by_id('job_source_-input')
+    input_job_source = driver.find_element(By.ID,'job_source_-input')
 
     input_fname.send_keys('Ranchaya')
 
@@ -229,7 +230,7 @@ for i in range (5):
 
     input_job_source.send_keys('Independent Search')
 
-    agreed = driver.find_element_by_id("copy_of_form_submission-input")
+    agreed = driver.find_element(By.ID,"copy_of_form_submission-input")
     if agreed.get_attribute("checked") != "true":
         agreed.click()
 
